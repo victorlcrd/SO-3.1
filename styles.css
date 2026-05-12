@@ -1,0 +1,23 @@
+:root { font-family: Arial, sans-serif; }
+body { margin: 0; background: #f6f7fb; color: #1e2230; }
+header { background: #1d3557; color: #fff; padding: 16px 24px; }
+.layout { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 12px; padding: 12px; }
+.panel { background: #fff; border-radius: 10px; padding: 12px; box-shadow: 0 1px 4px #0001; }
+.row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.card { background: #eef2ff; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
+.vars button { margin: 4px; }
+.frames { display: grid; grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 6px; }
+.frame { border: 1px solid #d1d5db; border-radius: 8px; padding: 6px; font-size: 13px; }
+.frame.flash { animation: flash 0.8s; }
+@keyframes flash { from { background: #fff8c5; } to { background: inherit; } }
+.p1bg { background: #ffd6d6; }
+.p2bg { background: #d6e8ff; }
+.p3bg { background: #dcffd6; }
+.sysbg { background: #ececec; }
+.freebg { background: #fff; }
+.legend { display: flex; gap: 8px; font-size: 13px; margin-bottom: 8px; flex-wrap: wrap; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 2px; }
+.dot.p1 { background: #ff8f8f; } .dot.p2 { background: #8fbbff; } .dot.p3 { background: #96ec8f; }
+.dot.sys { background: #bbb; } .dot.free { border: 1px solid #aaa; }
+.log { max-height: 280px; overflow: auto; border: 1px solid #ddd; border-radius: 8px; padding: 8px; background: #fafafa; }
+.log p { margin: 6px 0; font-size: 13px; }

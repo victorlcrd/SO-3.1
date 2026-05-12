@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Memória Virtual</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Simulador de Memória Virtual (Paginação)</h1>
+    <p>Parte 1 + Parte 2: tradução de endereços, page fault, swap e substituição manual.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Processo ativo e TCB (PTBR)</h2>
+      <div class="row">
+        <label for="processSelect">Processo:</label>
+        <select id="processSelect"></select>
+      </div>
+      <div id="tcbInfo" class="card"></div>
+
+      <h3>Variáveis (uma por página)</h3>
+      <div id="vars" class="vars"></div>
+
+      <h3>Entrada manual de endereço lógico</h3>
+      <div class="row">
+        <input id="logicalAddress" type="number" min="0" max="4095" placeholder="0..4095" />
+        <button id="translateBtn">Traduzir</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>MMU / Passos da Tradução</h2>
+      <ol id="mmuSteps"></ol>
+      <div id="eventLog" class="log"></div>
+    </section>
+
+    <section class="panel">
+      <h2>RAM + Swap</h2>
+      <div class="legend">
+        <span class="dot p1"></span>P1
+        <span class="dot p2"></span>P2
+        <span class="dot p3"></span>P3
+        <span class="dot sys"></span>Sistema
+        <span class="dot free"></span>Livre
+      </div>
+      <div id="frames" class="frames"></div>
+      <h3>Área de swap (16..23)</h3>
+      <div id="swap" class="frames"></div>
+    </section>
+  </main>
+
+  <dialog id="faultDialog">
+    <form method="dialog">
+      <h3 id="faultTitle">Page Fault</h3>
+      <p id="faultMessage"></p>
+      <label for="frameChoice">Escolha o quadro RAM (2..15):</label>
+      <select id="frameChoice"></select>
+      <menu>
+        <button value="cancel">Cancelar</button>
+        <button id="confirmFault" value="default">Confirmar</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
